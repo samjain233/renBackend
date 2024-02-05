@@ -12,12 +12,15 @@ app.use(express.urlencoded({ extended: true, limit: "16kb" }));
 //importing routes---------------------------
 import { homeController } from "./controllers/home.controller.js";
 import api from "./routes/api.routes.js";
+import { videoController } from "./controllers/video.controller.js";
 
 //routes--------------------------------------
 app.use("/api", api);
 
 //home route----------------------------------
 app.get("/", homeController);
+
+app.get("/video", videoController);
 
 //wildcard route ----------------------------------------------
 app.get("*", (req, res) => {
