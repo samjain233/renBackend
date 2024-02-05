@@ -109,7 +109,7 @@ export const registerAdminController = asyncHandler(async (req, res) => {
     const checkCreatedUser = user?._id;
     if (checkCreatedUser) {
         const emailToken = await createEmailVerificationToken(user._id);
-        console.log(emailToken);
+        const link = process.env.FRONTEND_SERVER + "verify/" + emailToken;
 
         //generating email template -------------------------------------------------
         const __dirname = path.resolve();
@@ -119,7 +119,7 @@ export const registerAdminController = asyncHandler(async (req, res) => {
         );
         const html = await ejs.renderFile(filepath, {
             username: username,
-            link: emailToken,
+            link: link,
         });
         //---------------------------------------------------------------------------
 

@@ -57,7 +57,8 @@ export const loginController = asyncHandler(async (req, res) => {
         //sending verification link to user
 
         const emailToken = await createEmailVerificationToken(user._id);
-        console.log(emailToken);
+        const link = process.env.FRONTEND_SERVER + "verify/" + emailToken;
+        console.log(link);
 
         //generating email template -------------------------------------------------
 
@@ -68,7 +69,7 @@ export const loginController = asyncHandler(async (req, res) => {
         );
         const html = await ejs.renderFile(filepath, {
             username: user.username,
-            link: emailToken,
+            link: link,
         });
         //---------------------------------------------------------------------------
         sendMailService(user.email, "email Verification", html);
