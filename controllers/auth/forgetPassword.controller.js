@@ -49,19 +49,19 @@ export const forgetPasswordController = asyncHandler(async (req, res) => {
     const userId = user._id;
     //generating email token -----------------------------------------
     const emailToken = await createEmailVerificationToken(userId);
-    console.log(emailToken);
     //----------------------------------------------------------------
 
     //generating mail ------------------------------------------------
 
     //generating email template -------------------------------------------------
     const __dirname = path.resolve();
+    const link = process.env.FRONTEND_SERVER + "updatepassword/" + emailToken;
     const filepath = path.join(
         __dirname,
         "./templates/mail/forgetPasswordEmail.template.ejs",
     );
     const html = await ejs.renderFile(filepath, {
-        link: emailToken,
+        link: link,
     });
     //---------------------------------------------------------------------------
     sendMailService(user.email, "forgot password", html);
