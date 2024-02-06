@@ -7,6 +7,8 @@ export const getEventsController = asyncHandler(async (req, res) => {
     const eventShortDetails = await Event.find({}).select({
         eventName: 1,
         description: 1,
+        route: 1,
+        svg: 1,
     });
     res.status(200).json(
         new ApiResponse(
