@@ -9,6 +9,13 @@ const eventSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
+    svg: {
+        type: String,
+    },
+    route: {
+        type: String,
+        index: true,
+    },
     description: {
         type: String,
         required: true,
