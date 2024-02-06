@@ -9,4 +9,6 @@ router.get("/", getEventsController);
 router.get("/:eventid", getEventDetailsController);
 
 
+
+
 export default router;

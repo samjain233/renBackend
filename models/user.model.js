@@ -49,6 +49,9 @@ const userSchema = new mongoose.Schema(
             required: true,
             default: false,
         },
+        eventsParticipated: [
+            { type: mongoose.Schema.Types.ObjectId, ref: "Event", default: [] },
+        ],
     },
     { timestamps: true },
 );
