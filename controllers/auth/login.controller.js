@@ -33,6 +33,13 @@ export const loginController = asyncHandler(async (req, res) => {
         throw new ApiError(400, error);
     }
 
+    //check for email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        const error = "Invalid email format.";
+        throw new ApiError(400, error);
+    }
+
     email = email.toLowerCase();
 
     //check if user exists ----------------------------------------

@@ -25,6 +25,13 @@ export const forgetPasswordController = asyncHandler(async (req, res) => {
         const error = "email field must be of type string.";
         throw new ApiError(400, error);
     }
+
+    //check for email format
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+        const error = "Invalid email format.";
+        throw new ApiError(400, error);
+    }
     //--------------------------------------------------------------
 
     //check if user exists ----------------------------------------

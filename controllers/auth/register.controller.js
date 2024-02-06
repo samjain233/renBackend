@@ -65,7 +65,7 @@ export const registerAdminController = asyncHandler(async (req, res) => {
     }
 
     // Password complexity validation
-    const passwordRegex = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+    const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
     if (!password.match(passwordRegex)) {
         const error =
             "Password must be at inimum eight characters, at least one letter and one number.";
