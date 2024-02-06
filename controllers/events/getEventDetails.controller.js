@@ -9,7 +9,7 @@ export const getEventDetailsController = asyncHandler(async (req, res) => {
         const error = "event Id is not provided";
         throw new ApiError(200, error);
     }
-    const EventData = await Event.findById(eventId);
+    const EventData = await Event.findOne({ route: eventId });
     res.status(200).json(
         new ApiResponse(200, "event data fetch successfull", EventData),
     );
