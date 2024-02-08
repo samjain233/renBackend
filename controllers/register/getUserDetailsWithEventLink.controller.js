@@ -9,7 +9,7 @@ export const getUserDetailsWithEventLink = asyncHandler(async (req, res) => {
     const userDetails = await User.findById(userId)
         .populate({
             path: "eventsParticipated",
-            select: "eventName link",
+            select: "eventName link route",
         })
         .select({
             email: 1,
