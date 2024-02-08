@@ -68,7 +68,7 @@ export const registerAdminController = asyncHandler(async (req, res) => {
     const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
     if (!password.match(passwordRegex)) {
         const error =
-            "Password must be at inimum eight characters, at least one letter and one number.";
+            "Password must be at minimum eight characters, at least one letter and one number.";
         throw new ApiError(400, error);
     }
 
