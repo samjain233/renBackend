@@ -10,6 +10,10 @@ const router = express.Router();
 router.post("/register", authMiddleware, registerUserController);
 router.post("/unregister", authMiddleware, unregisterUserController);
 router.post("/getalluserdetails", authMiddleware, getUserDetailsController);
-router.post("/getalluserdetailswitheventlink",authMiddleware,getUserDetailsWithEventLink)
+router.post(
+    "/getalluserdetailswitheventlink",
+    authMiddleware,
+    getUserDetailsWithEventLink,
+);
 
 export default router;

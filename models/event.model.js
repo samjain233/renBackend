@@ -23,8 +23,8 @@ const eventSchema = new mongoose.Schema({
     date: {
         type: String,
     },
-    link:{
-        type:String,
+    link: {
+        type: String,
     },
     format: [],
     rules: [],
