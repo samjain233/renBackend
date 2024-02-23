@@ -12,7 +12,6 @@ export const getUserDetailsWithEventLink = asyncHandler(async (req, res) => {
             select: "eventName link route",
         })
         .select({
-            email: 1,
             username: 1,
             gender: 1,
             phone: 1,
